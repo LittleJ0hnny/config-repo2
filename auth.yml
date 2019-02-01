@@ -1,0 +1,40 @@
+server:
+  port: 8200
+
+spring:
+  application:
+    name: authservice
+  datasource:
+    url: jdbc:mysql://localhost:3306/cred_db
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 5
+      driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      javax:
+        persistence:
+          validation: none
+      hibernate:
+        enable_lazy_load_no_trans: true
+
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
+token:
+  access:
+    default_time: 1800
+  refresh:
+    default_time: 86400
