@@ -5,7 +5,7 @@ spring:
   application:
     name: authservice
   datasource:
-    url: jdbc:mysql://mysql-server:3306/cred_db
+    url: jdbc:mysql://mysql-server:3306/cred_db?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: root
     hikari:
@@ -14,16 +14,17 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       javax:
         persistence:
           validation: none
       hibernate:
         enable_lazy_load_no_trans: true
+  liquibase:
+    change-log: classpath:db/db.changelog-master.xml
 
-liquibase:
-  change-log: classpath:db/changelog/db.changelog-master.xml
+
 
 eureka:
   client:
