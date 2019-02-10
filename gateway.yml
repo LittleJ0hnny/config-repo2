@@ -18,7 +18,7 @@ zuul:
   routes:
     discovery:
       path: /discovery/**
-      url: http://discUser:discPassword@discovery-server:8761
+      url: http://discUser:discPassword@${DISCOVERY_HOST:localhost}:${DISCOVERY_PORT:8761}/eureka/
             
 management:
   endpoints:
@@ -30,8 +30,8 @@ security:
   sessions: NEVER
   oauth2:
     client:
-      accessTokenUri: http://auth-server:8200/oauth/token
-      userAuthorizationUri: http://auth-server:8200/oauth/authorize
+      accessTokenUri: http://${AUTH_HOST:localhost}:${AUTH_PORT:8200}/oauth/token
+      userAuthorizationUri: http://${AUTH_HOST:localhost}:${AUTH_PORT:8200}/oauth/authorize
       scope: read, write
       clientId: authserver
       clientSecret: passwordforauthserver
