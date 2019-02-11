@@ -15,10 +15,6 @@ zuul:
   FormBodyWrapperFilter:
     pre:
       disable: false
-  routes:
-    discovery:
-      path: /discovery/**
-      serviceId: discovery 
             
 management:
   endpoints:
