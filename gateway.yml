@@ -18,7 +18,7 @@ zuul:
   routes:
     discovery:
       path: /discovery/**
-      url: http://discUser:discPassword@${DISCOVERY_HOST:localhost}:${DISCOVERY_PORT:8761}/eureka/
+      serviceId: discovery 
             
 management:
   endpoints:
