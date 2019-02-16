@@ -19,14 +19,6 @@ zuul:
     discovery:
       path: /discovery/**
       url: http://discUser:discPassword@${DISCOVERY_HOST:localhost}:${DISCOVERY_PORT:8761}
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
             
 management:
   endpoints:
