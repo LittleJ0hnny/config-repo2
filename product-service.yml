@@ -4,6 +4,26 @@ server:
 spring:
   application:
     name: product-service
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/prod_db?serverTimezone=UTC
+    username: admin
+    password: admin
+    hikari:
+      maximum-pool-size: 5
+      driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      javax:
+        persistence:
+          validation: none
+      hibernate:
+        enable_lazy_load_no_trans: true
+  liquibase:
+    change-log: classpath:db/db.changelog-master.xml
+
 
 eureka:
   client:
@@ -15,6 +35,12 @@ management:
     web:
       exposure:
         include: '*'
+        
+token:
+  access:
+    default_time: 1800
+  refresh:
+    default_time: 86400
 
 security:
   sessions: NEVER
