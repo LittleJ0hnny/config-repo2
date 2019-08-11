@@ -14,15 +14,13 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       javax:
         persistence:
           validation: none
       hibernate:
         enable_lazy_load_no_trans: true
-  liquibase:
-    change-log: classpath:db/db.changelog-master.xml
 
 
 eureka:
